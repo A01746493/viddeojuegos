@@ -15,25 +15,25 @@ from freegames import vector
 
 
 def line(start, end):
-    """Draw line from start to end."""
-    up()
-    goto(start.x, start.y)
-    down()
-    goto(end.x, end.y)
+    """Draw line from start to end and fill it with a color."""
+    up() #Pull the pen up – no drawing when moving.
+    goto(start.x, start.y)  #Move the pen to x,y position
+    down() #Pull the pen down – drawing when moving.
+    goto(end.x, end.y) 
 
 
 def square(start, end):
-    """Draw square from start to end."""
+    """Draw a square from start to end and fill it with a color."""
     up()
     goto(start.x, start.y)
     down()
-    begin_fill()
+    begin_fill() #To be called just before drawing a shape to be filled.
 
     for count in range(4):
-        forward(end.x - start.x)
-        left(90)
+        forward(end.x - start.x) #Move the turtle forward 
+        left(90) #Make de turtle rotate 
 
-    end_fill()
+    end_fill() #filled all de figure
 
 
 def circle(start, end):
@@ -41,14 +41,14 @@ def circle(start, end):
 
 
 def rectangle(start, end):
-    """Draw rectangle from start to end."""
+    """Draw a rectangle from start to end and fill it with a color."""
     up()
     goto(start.x, start.y)
     down()
     begin_fill()
     for count in range(2):
         forward(end.x - start.x)
-            
+        left(90)    
         forward(end.y - start.y)
         left(90)
         
@@ -56,8 +56,8 @@ def rectangle(start, end):
 
 
 def triangle(start, end):
-    """Draw triangle from start to end."""
-    pass  # TODO
+    """Draw a triangle from start to end and fill it with a color."""
+    pass  # TODO 
     up()
     goto(start.x, start.y)
     down()
@@ -84,6 +84,9 @@ def tap(x, y):
 def store(key, value):
     """Store value in state at key."""
     state[key] = value
+
+
+
 
 
 state = {'start': None, 'shape': line}
