@@ -11,7 +11,6 @@ Exercises
 
 from random import choice
 from turtle import *
-
 from freegames import floor, vector
 
 speed = 20
@@ -67,7 +66,7 @@ def square(x, y):
 
     path.end_fill()
 
-
+""" """
 def offset(point):
     """Return offset of point in tiles."""
     x = (floor(point.x, 20) + 200) / 20
@@ -112,6 +111,8 @@ def world():
 
 """Control the movement and speed of the ghosts and pacman"""
 def move():
+    
+    
     """Move pacman and all ghosts."""
     writer.undo()
     writer.write(state['score'])
@@ -160,7 +161,7 @@ def move():
 
     ontimer(move, 100)
 
-"""IIndicates if the new address is valid and changes it"""
+"""Indicates if the new address is valid and changes it"""
 def change(x, y):
     """Change pacman aim if valid."""
     if valid(pacman + vector(x, y)):
