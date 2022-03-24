@@ -25,7 +25,8 @@ def line(start, end):
     goto(end.x, end.y) 
 
 """ Function square; Draw a square with a defined 
-    length from start x to end x  """
+    length from start x to end x  
+"""
 def square(start, end):
     """Draw a square from start to end and fill it with a color."""
     up()
@@ -42,7 +43,8 @@ def square(start, end):
 """Function cric; Draw a circle calculating the radius, between two points"""
 def circ(start, end):
     """Variable that calculates the radius of the circle 
-    from the points in X and Y. """
+    from the points in X and Y. 
+    """
     import math
     rad = math.dist(start,end)
     up()
@@ -55,7 +57,8 @@ def circ(start, end):
     end_fill()
 
 """Function rectangle;Draw a rectangle with a defined 
-    length from start x to end y   """
+    length from start x to end y   
+    """
 def rectangle(start, end):
     """Draw a rectangle from start to end and fill it with a color."""
     up()
@@ -71,7 +74,8 @@ def rectangle(start, end):
     end_fill()
 
 """Function triangle;Draw a rectangle with a defined 
-    length from start x to end y   """
+    length from start x to end y   
+    """
 def triangle(start, end):
     """Draw a triangle from start to end and fill it with a color."""
     pass  # TODO 
