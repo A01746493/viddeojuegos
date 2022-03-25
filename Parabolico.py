@@ -78,7 +78,7 @@ def move():
     for target in targets:
         if not inside(target):
             return
-
+    #The movement speed for the projectile and the balls is faster
     ontimer(move, 5)
 
 setup(420, 420, 370, 0)
