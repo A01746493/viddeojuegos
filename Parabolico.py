@@ -17,7 +17,7 @@ ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
 
-
+"""Throw a red ball when we make a tap"""
 def tap(x, y):
     """Respond to screen tap."""
     if not inside(ball):
@@ -26,11 +26,12 @@ def tap(x, y):
         speed.x = (x + 200) / 25
         speed.y = (y + 200) / 25
 
-
+"""Declare the limits of the game"""
 def inside(xy):
     """Return True if xy within screen."""
     return -200 < xy.x < 200 and -200 < xy.y < 200
 
+""" Draw the balls and dots on the screen"""
 def draw():
     """Draw ball and targets."""
     clear()
@@ -45,6 +46,7 @@ def draw():
 
     update()
 
+"""Function in charge of the movement of the red dots and blue circles """
 def move():
     """Move ball and targets."""
     if randrange(40) == 0:
@@ -52,9 +54,10 @@ def move():
         target = vector(200, y)
         targets.append(target)
 
+    #This cycle is responsible for making the game infinite
     for target in targets:
         target.x -= 0.5
-        if target.x == -170:
+        if target.x == -170: 
             target.x = 170
 
 
