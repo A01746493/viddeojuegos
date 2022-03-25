@@ -13,7 +13,7 @@ from random import choice
 from turtle import *
 from freegames import floor, vector
 
-speed = 20
+speed = 10
 
 state = {'score': 0}
 path = Turtle(visible=False)
@@ -111,8 +111,8 @@ def world():
 
 """Control the movement and speed of the ghosts and pacman"""
 def move():
-    
-    
+
+
     """Move pacman and all ghosts."""
     writer.undo()
     writer.write(state['score'])
@@ -136,18 +136,90 @@ def move():
     dot(20, 'yellow')
 
     for point, course in ghosts:
-        if valid(point + course):
-            point.move(course)
+        
+        if (point.x < pacman.x):
+            plan = vector(speed, 0)
+            course.x = plan.x
+            course.y = plan.y
+            if valid(point + course):
+                point.move(course)
+            else:
+                options = [
+                    vector(0, speed),
+                    vector(0, -speed),
+                    vector(-speed, 0),
+                ]
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
+                if valid(point + course):
+                    point.move(course)
+
+        elif (point.y < pacman.y):
+            plan = vector(speed,0)
+            course.x = plan.x
+            course.y = plan.y
+            if valid(point + course):
+                point.move(course)
+            else:
+                options = [
+                    vector(speed, 0),
+                    vector(0, -speed),
+                    vector(-speed, 0),
+                ]
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
+                if valid(point + course):
+                    point.move(course)
+
+        elif (point.x > pacman.x):
+            plan = vector(-speed, 0)
+            course.x = plan.x
+            course.y = plan.y
+            if valid(point + course):
+                point.move(course)
+            else:
+                options = [
+                    vector(speed, 0),
+                    vector(0, -speed),
+                    vector(0, speed),
+                ]
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
+                if valid(point + course):
+                    point.move(course)
+
+        elif (point.y > pacman.y):
+            plan = vector(0, -speed)
+            course.x = plan.x
+            course.y = plan.y
+            if valid(point + course):
+                point.move(course)
+            else:
+                options = [
+                    vector(speed, 0),
+                    vector(0, speed),
+                    vector(-speed, 0),
+                ]
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
+                if valid(point + course):
+                    point.move(course)
         else:
             options = [
-                vector(speed, 0),
-                vector(-speed, 0),
-                vector(0, speed),
-                vector(0, -speed),
+                    vector(speed, 0),
+                    vector(0, speed),
+                    vector(-speed, 0),
+                    vector(0, -speed),
             ]
             plan = choice(options)
             course.x = plan.x
             course.y = plan.y
+            if valid(point + course):
+                point.move(course)
 
         up()
         goto(point.x + 10, point.y + 10)
