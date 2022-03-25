@@ -18,14 +18,14 @@ from freegames import vector
 """ Function line; draw a line between two points """
 def line(start, end):
     """Draw line from start to end and fill it with a color."""
-    
+
     up() #Pull the pen up – no drawing when moving.
     goto(start.x, start.y)  #Move the pen to x,y position
     down() #Pull the pen down – drawing when moving.
-    goto(end.x, end.y) 
+    goto(end.x, end.y)
 
-""" Function square; Draw a square with a defined 
-    length from start x to end x  
+""" Function square; Draw a square with a defined
+    length from start x to end x
 """
 def square(start, end):
     """Draw a square from start to end and fill it with a color."""
@@ -35,15 +35,15 @@ def square(start, end):
     begin_fill() #To be called just before drawing a shape to be filled.
 
     for count in range(4):
-        forward(end.x - start.x) #Move the turtle forward 
-        left(90) #Make de turtle rotate 
+        forward(end.x - start.x) #Move the turtle forward
+        left(90) #Make de turtle rotate
 
     end_fill() #filled all de figure
 
 """Function cric; Draw a circle calculating the radius, between two points"""
 def circ(start, end):
-    """Variable that calculates the radius of the circle 
-    from the points in X and Y. 
+    """Variable that calculates the radius of the circle
+    from the points in X and Y.
     """
     import math
     rad = math.dist(start,end)
@@ -56,8 +56,8 @@ def circ(start, end):
 
     end_fill()
 
-"""Function rectangle;Draw a rectangle with a defined 
-    length from start x to end y   
+"""Function rectangle;Draw a rectangle with a defined
+    length from start x to end y
     """
 def rectangle(start, end):
     """Draw a rectangle from start to end and fill it with a color."""
@@ -67,18 +67,18 @@ def rectangle(start, end):
     begin_fill()
     for count in range(2):
         forward(end.x - start.x)
-        left(90)    
+        left(90)
         forward(end.y - start.y)
         left(90)
-        
+
     end_fill()
 
-"""Function triangle;Draw a rectangle with a defined 
-    length from start x to end y   
+"""Function triangle;Draw a rectangle with a defined
+    length from start x to end y
     """
 def triangle(start, end):
     """Draw a triangle from start to end and fill it with a color."""
-    pass  # TODO 
+    pass  # TODO
     up()
     goto(start.x, start.y)
     down()

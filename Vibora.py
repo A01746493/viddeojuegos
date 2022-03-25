@@ -52,7 +52,8 @@ def random_food():
             food.y += 10
         else:
             food.y -= 10
-    ontimer(random_food, 2000) """Here you can select the time of that the food change"""
+    ontimer(random_food, 2000)
+    """Here you can select the time of that the food change"""
 
 def change(x, y):
     """Change snake direction."""
