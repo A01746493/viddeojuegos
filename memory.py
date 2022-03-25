@@ -19,6 +19,9 @@ tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
 
+taps = 0
+
+writer = Turtle(visible = False)
 
 def square(x, y):
     """Draw white square with black outline at (x, y)."""
@@ -44,7 +47,10 @@ def xy(count):
 
 
 def tap(x, y):
+    global mark,taps
+
     """Update mark and hidden tiles based on tap."""
+    taps = taps + 1
     spot = index(x, y)
     mark = state['mark']
 
@@ -55,6 +61,11 @@ def tap(x, y):
         hide[mark] = False
         state['mark'] = None
 
+def win():
+    clear()
+    goto(0,0)
+    shape(car)
+    stamp()
 
 def draw():
     """Draw image and tiles."""
@@ -76,12 +87,27 @@ def draw():
         """La funcion del if es para que si tiene un digito se coloque a x
         distancia y si tiene dos digitos se coloca a otra x distancia
         """
-        if tiles[mark] > 9: 
+        if tiles[mark] > 9:
             goto(x + 5, y)
         else:
             goto(x + 15, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal') )
+
+    hidden = hide.count(True)
+    found = 64 - hidden
+    print("CARDS FOUND", found)
+
+    if hidden ==0:
+        win()
+        up()
+        goto(-100, 80)
+        color('white')
+        write('NAILED IT!', font=('Times New Roman', 30, 'normal'))
+        goto(-140, -150)
+        color('white')
+        write(f'YOU MADE {taps} CLICS', font=('Arial', 20, 'normal'))
+        return
 
     update()
     ontimer(draw, 100)
