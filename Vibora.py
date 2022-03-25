@@ -37,7 +37,9 @@ def change(x, y):
     aim.y = y
 
 def dibujo(x,y,size,name):
-    """We store our snake's positions in an array with 'X' and 'Y' coordinates and loop to move the snake forward."""
+    """We store our snake's positions in an array with 'X' and 'Y' 
+    coordinates and loop to move the snake forward.
+    """
     up()
     goto(x,y)
     down()
@@ -45,9 +47,13 @@ def dibujo(x,y,size,name):
     begin_fill()
 
     for i in range (4):
-        """by the value of the argument it takes, which depends on the length"""
+        """by the value of the argument it takes, which depends 
+        on the length
+        """
         forward(size)
-        """Change the viper's direction by 90 so it can only turn in those degrees"""
+        """Change the viper's direction by 90 so it can only 
+        turn in those degrees
+        """
         left(90)
 
     end_fill()
