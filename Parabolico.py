@@ -54,6 +54,8 @@ def move():
 
     for target in targets:
         target.x -= 0.5
+        if target.x == -170:
+            target.x = 170
 
 
 
