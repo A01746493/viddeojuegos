@@ -135,8 +135,16 @@ def move():
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'yellow')
 
+    """
+        [vector(-180, 160), vector(speed, 0)],
+        [vector(-180, -160), vector(0, speed)],
+        [vector(100, 160), vector(0, -speed)],
+        [vector(100, -160), vector(-speed, 0)],
+
+    Here change the position of the ghost, if they detect the pacman they approach him"""   
     for point, course in ghosts:
-        
+
+        """If the position in 'x' of the pacman, it's greater than the position of the ghost move it with the respective vector"""
         if (point.x < pacman.x):
             plan = vector(speed, 0)
             course.x = plan.x
@@ -155,7 +163,10 @@ def move():
                 if valid(point + course):
                     point.move(course)
 
+
+            """If the position in 'y' of the pacman, it's greater than the position of the ghost move it with the respective vector"""
         elif (point.y < pacman.y):
+
             plan = vector(speed,0)
             course.x = plan.x
             course.y = plan.y
@@ -173,6 +184,7 @@ def move():
                 if valid(point + course):
                     point.move(course)
 
+            """If the position in 'x' of the pacman, it's less than the position of the ghost move it with the respective vector"""
         elif (point.x > pacman.x):
             plan = vector(-speed, 0)
             course.x = plan.x
@@ -191,6 +203,7 @@ def move():
                 if valid(point + course):
                     point.move(course)
 
+            """If the position in 'y' of the pacman, it's greater less the position of the ghost move it with the respective vector"""
         elif (point.y > pacman.y):
             plan = vector(0, -speed)
             course.x = plan.x
