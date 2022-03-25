@@ -117,7 +117,7 @@ onscreenclick(tap)
 listen()
 onkey(undo, 'u')
 onkey(lambda: color('black'), 'K')
-onkey(lambda: color('yellow'), 'Y')
+onkey(lambda: color('yellow'), 'Y') #Color created by us
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
