@@ -84,9 +84,8 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        """La funcion del if es para que si tiene un digito se coloque a x
-        distancia y si tiene dos digitos se coloca a otra x distancia
-        """
+        """The if function is so that if it has a digit it is placed at x
+        distance and if it has two digits it is placed at another x distance"""
         if tiles[mark] > 9:
             goto(x + 5, y)
         else:
